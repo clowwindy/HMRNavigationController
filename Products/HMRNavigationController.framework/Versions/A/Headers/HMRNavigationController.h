@@ -8,4 +8,8 @@
 
 
 @interface HMRNavigationController : UINavigationController <UIGestureRecognizerDelegate>
+
+- (void)popViewControllerWithDuration:(NSTimeInterval)duration options:(UIViewAnimationOptions)options;
+- (void)resetTopViewControllerWithDuration:(NSTimeInterval)duration options:(UIViewAnimationOptions)options;
+
 @end

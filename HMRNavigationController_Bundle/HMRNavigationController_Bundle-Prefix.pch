@@ -1,0 +1,7 @@
+//
+// Prefix header for all source files of the 'HMRNavigationController_Bundle' target in the 'HMRNavigationController_Bundle' project
+//
+
+#ifdef __OBJC__
+    #import <Cocoa/Cocoa.h>
+#endif

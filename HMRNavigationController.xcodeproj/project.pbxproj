@@ -6,6 +6,21 @@
 	objectVersion = 46;
 	objects = {
 
+/* Begin PBXAggregateTarget section */
+		62C106ED17BDF43B00CDE393 /* HMRNavigationControllerAggregate */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 62C106EE17BDF43B00CDE393 /* Build configuration list for PBXAggregateTarget "HMRNavigationControllerAggregate" */;
+			buildPhases = (
+				62C106F117BDF44A00CDE393 /* ShellScript */,
+			);
+			dependencies = (
+				62C106F317BDF53A00CDE393 /* PBXTargetDependency */,
+			);
+			name = HMRNavigationControllerAggregate;
+			productName = HMRNavigationControllerAggregate;
+		};
+/* End PBXAggregateTarget section */
+
 /* Begin PBXBuildFile section */
 		62C106C017BDF36A00CDE393 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62C106BF17BDF36A00CDE393 /* UIKit.framework */; };
 		62C106C217BDF36A00CDE393 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62C106C117BDF36A00CDE393 /* Foundation.framework */; };
@@ -16,7 +31,19 @@
 		62C106D217BDF36A00CDE393 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 62C106D117BDF36A00CDE393 /* Default.png */; };
 		62C106D417BDF36A00CDE393 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 62C106D317BDF36A00CDE393 /* Default@2x.png */; };
 		62C106D617BDF36A00CDE393 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 62C106D517BDF36A00CDE393 /* Default-568h@2x.png */; };
+		62C106E217BDF3A300CDE393 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62C106E117BDF3A300CDE393 /* CoreFoundation.framework */; };
+		62C106E817BDF3A300CDE393 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 62C106E617BDF3A300CDE393 /* InfoPlist.strings */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		62C106F217BDF53A00CDE393 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 62C106B417BDF36A00CDE393 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 62C106DF17BDF3A300CDE393;
+			remoteInfo = HMRNavigationController_Bundle;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		62C106BC17BDF36A00CDE393 /* HMRNavigationController.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HMRNavigationController.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -32,6 +59,11 @@
 		62C106D117BDF36A00CDE393 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		62C106D317BDF36A00CDE393 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		62C106D517BDF36A00CDE393 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		62C106E017BDF3A300CDE393 /* HMRNavigationController_Bundle.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HMRNavigationController_Bundle.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		62C106E117BDF3A300CDE393 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
+		62C106E517BDF3A300CDE393 /* HMRNavigationController_Bundle-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "HMRNavigationController_Bundle-Info.plist"; sourceTree = "<group>"; };
+		62C106E717BDF3A300CDE393 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		62C106E917BDF3A300CDE393 /* HMRNavigationController_Bundle-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HMRNavigationController_Bundle-Prefix.pch"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,6 +77,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		62C106DD17BDF3A300CDE393 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				62C106E217BDF3A300CDE393 /* CoreFoundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -52,6 +92,7 @@
 			isa = PBXGroup;
 			children = (
 				62C106C517BDF36A00CDE393 /* HMRNavigationController */,
+				62C106E317BDF3A300CDE393 /* HMRNavigationController_Bundle */,
 				62C106BE17BDF36A00CDE393 /* Frameworks */,
 				62C106BD17BDF36A00CDE393 /* Products */,
 			);
@@ -61,6 +102,7 @@
 			isa = PBXGroup;
 			children = (
 				62C106BC17BDF36A00CDE393 /* HMRNavigationController.app */,
+				62C106E017BDF3A300CDE393 /* HMRNavigationController_Bundle.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -71,6 +113,7 @@
 				62C106BF17BDF36A00CDE393 /* UIKit.framework */,
 				62C106C117BDF36A00CDE393 /* Foundation.framework */,
 				62C106C317BDF36A00CDE393 /* CoreGraphics.framework */,
+				62C106E117BDF3A300CDE393 /* CoreFoundation.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -99,6 +142,24 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		62C106E317BDF3A300CDE393 /* HMRNavigationController_Bundle */ = {
+			isa = PBXGroup;
+			children = (
+				62C106E417BDF3A300CDE393 /* Supporting Files */,
+			);
+			path = HMRNavigationController_Bundle;
+			sourceTree = "<group>";
+		};
+		62C106E417BDF3A300CDE393 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				62C106E517BDF3A300CDE393 /* HMRNavigationController_Bundle-Info.plist */,
+				62C106E617BDF3A300CDE393 /* InfoPlist.strings */,
+				62C106E917BDF3A300CDE393 /* HMRNavigationController_Bundle-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -118,6 +179,23 @@
 			productName = HMRNavigationController;
 			productReference = 62C106BC17BDF36A00CDE393 /* HMRNavigationController.app */;
 			productType = "com.apple.product-type.application";
+		};
+		62C106DF17BDF3A300CDE393 /* HMRNavigationController_Bundle */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 62C106EA17BDF3A300CDE393 /* Build configuration list for PBXNativeTarget "HMRNavigationController_Bundle" */;
+			buildPhases = (
+				62C106DC17BDF3A300CDE393 /* Sources */,
+				62C106DD17BDF3A300CDE393 /* Frameworks */,
+				62C106DE17BDF3A300CDE393 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = HMRNavigationController_Bundle;
+			productName = HMRNavigationController_Bundle;
+			productReference = 62C106E017BDF3A300CDE393 /* HMRNavigationController_Bundle.framework */;
+			productType = "com.apple.product-type.bundle";
 		};
 /* End PBXNativeTarget section */
 
@@ -142,6 +220,8 @@
 			projectRoot = "";
 			targets = (
 				62C106BB17BDF36A00CDE393 /* HMRNavigationController */,
+				62C106DF17BDF3A300CDE393 /* HMRNavigationController_Bundle */,
+				62C106ED17BDF43B00CDE393 /* HMRNavigationControllerAggregate */,
 			);
 		};
 /* End PBXProject section */
@@ -158,7 +238,31 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		62C106DE17BDF3A300CDE393 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				62C106E817BDF3A300CDE393 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		62C106F117BDF44A00CDE393 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Sets the target folders and the final framework product.\nFMK_NAME=HMRNavigationController_Bundle\nFMK_VERSION=A\n\n# Install dir will be the final output to the framework.\n# The following line create it in the root folder of the current project.\nINSTALL_DIR=${SRCROOT}/Products/${FMK_NAME}.framework\n\n# Working dir will be deleted after the framework creation.\nWRK_DIR=build\nDEVICE_DIR=${WRK_DIR}/Release-iphoneos/${FMK_NAME}.framework\nSIMULATOR_DIR=${WRK_DIR}/Release-iphonesimulator/${FMK_NAME}.framework\n\n# Building both architectures.\nxcodebuild -configuration \"Release\" -target \"${FMK_NAME}\" -sdk iphoneos\nxcodebuild -configuration \"Release\" -target \"${FMK_NAME}\" -sdk iphonesimulator\n\n# Cleaning the oldest.\nif [ -d \"${INSTALL_DIR}\" ]\nthen\nrm -rf \"${INSTALL_DIR}\"\nfi\n\n# Creates and renews the final product folder.\nmkdir -p \"${INSTALL_DIR}\"\nmkdir -p \"${INSTALL_DIR}/Versions\"\nmkdir -p \"${INSTALL_DIR}/Versions/${FMK_VERSION}\"\nmkdir -p \"${INSTALL_DIR}/Versions/${FMK_VERSION}/Resources\"\nmkdir -p \"${INSTALL_DIR}/Versions/${FMK_VERSION}/Headers\"\n\n# Creates the internal links.\n# It MUST uses relative path, otherwise will not work when the folder is copied/moved.\nln -s \"${FMK_VERSION}\" \"${INSTALL_DIR}/Versions/Current\"\nln -s \"Versions/Current/Headers\" \"${INSTALL_DIR}/Headers\"\nln -s \"Versions/Current/Resources\" \"${INSTALL_DIR}/Resources\"\nln -s \"Versions/Current/${FMK_NAME}\" \"${INSTALL_DIR}/${FMK_NAME}\"\n\n# Copies the headers and resources files to the final product folder.\ncp -R \"${DEVICE_DIR}/Headers/\" \"${INSTALL_DIR}/Versions/${FMK_VERSION}/Headers/\"\ncp -R \"${DEVICE_DIR}/\" \"${INSTALL_DIR}/Versions/${FMK_VERSION}/Resources/\"\n\n# Removes the binary and header from the resources folder.\nrm -r \"${INSTALL_DIR}/Versions/${FMK_VERSION}/Resources/Headers\" \"${INSTALL_DIR}/Versions/${FMK_VERSION}/Resources/${FMK_NAME}\"\n\n# Uses the Lipo Tool to merge both binary files (i386 + armv6/armv7) into one Universal final product.\nlipo -create \"${DEVICE_DIR}/${FMK_NAME}\" \"${SIMULATOR_DIR}/${FMK_NAME}\" -output \"${INSTALL_DIR}/Versions/${FMK_VERSION}/${FMK_NAME}\"\n\nrm -r \"${WRK_DIR}\"";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		62C106B817BDF36A00CDE393 /* Sources */ = {
@@ -170,13 +274,36 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		62C106DC17BDF3A300CDE393 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		62C106F317BDF53A00CDE393 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 62C106DF17BDF3A300CDE393 /* HMRNavigationController_Bundle */;
+			targetProxy = 62C106F217BDF53A00CDE393 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		62C106C817BDF36A00CDE393 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
 				62C106C917BDF36A00CDE393 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		62C106E617BDF3A300CDE393 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				62C106E717BDF3A300CDE393 /* en */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -262,6 +389,64 @@
 			};
 			name = Release;
 		};
+		62C106EB17BDF3A300CDE393 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				COMBINE_HIDPI_IMAGES = YES;
+				DEAD_CODE_STRIPPING = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "HMRNavigationController_Bundle/HMRNavigationController_Bundle-Prefix.pch";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				INFOPLIST_FILE = "HMRNavigationController_Bundle/HMRNavigationController_Bundle-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
+				LINK_WITH_STANDARD_LIBRARIES = NO;
+				MACH_O_TYPE = mh_object;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				ONLY_ACTIVE_ARCH = NO;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				WRAPPER_EXTENSION = framework;
+			};
+			name = Debug;
+		};
+		62C106EC17BDF3A300CDE393 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				COMBINE_HIDPI_IMAGES = YES;
+				DEAD_CODE_STRIPPING = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "HMRNavigationController_Bundle/HMRNavigationController_Bundle-Prefix.pch";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				INFOPLIST_FILE = "HMRNavigationController_Bundle/HMRNavigationController_Bundle-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
+				LINK_WITH_STANDARD_LIBRARIES = NO;
+				MACH_O_TYPE = mh_object;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				WRAPPER_EXTENSION = framework;
+			};
+			name = Release;
+		};
+		62C106EF17BDF43B00CDE393 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		62C106F017BDF43B00CDE393 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -279,6 +464,22 @@
 			buildConfigurations = (
 				62C106DA17BDF36A00CDE393 /* Debug */,
 				62C106DB17BDF36A00CDE393 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		62C106EA17BDF3A300CDE393 /* Build configuration list for PBXNativeTarget "HMRNavigationController_Bundle" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				62C106EB17BDF3A300CDE393 /* Debug */,
+				62C106EC17BDF3A300CDE393 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		62C106EE17BDF43B00CDE393 /* Build configuration list for PBXAggregateTarget "HMRNavigationControllerAggregate" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				62C106EF17BDF43B00CDE393 /* Debug */,
+				62C106F017BDF43B00CDE393 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 		};

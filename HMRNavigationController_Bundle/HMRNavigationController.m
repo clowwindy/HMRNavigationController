@@ -19,6 +19,9 @@
     UIImageView *shadowImageView;
 }
 
+
+NSUInteger DeviceSystemMajorVersion();
+
 - (id)initWithRootViewController:(UIViewController *)rootViewController {
     self = [super initWithRootViewController:rootViewController];
     if (self) {
@@ -49,9 +52,14 @@
     if ([[UIScreen mainScreen] respondsToSelector:@selector(scale)]) {
         scale = [UIScreen mainScreen].scale;
     }
+    UIImage *viewImage;
     UIGraphicsBeginImageContextWithOptions(bgImageView.frame.size, YES, scale);
-    [self.view.layer renderInContext:UIGraphicsGetCurrentContext()];
-    UIImage *viewImage = UIGraphicsGetImageFromCurrentImageContext();
+    if (DeviceSystemMajorVersion() >= 7) {
+        [self.view.window drawViewHierarchyInRect:self.view.window.bounds afterScreenUpdates:NO];
+    } else {
+        [self.view.layer renderInContext:UIGraphicsGetCurrentContext()];
+    }
+    viewImage = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
     [bgImageStack addObject:viewImage];
     [bgImageView setImage:viewImage];

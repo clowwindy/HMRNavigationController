@@ -47,20 +47,35 @@ NSUInteger DeviceSystemMajorVersion();
     return YES;
 }
 
-- (void)pushViewController:(UIViewController *)viewController animated:(BOOL)animated {
+- (UIImage *)snapshot:(UIViewController *)viewController fast:(BOOL)fast {
     CGFloat scale = 1.0f;
     if ([[UIScreen mainScreen] respondsToSelector:@selector(scale)]) {
         scale = [UIScreen mainScreen].scale;
     }
     UIImage *viewImage;
     UIGraphicsBeginImageContextWithOptions(bgImageView.frame.size, YES, scale);
-    if (DeviceSystemMajorVersion() >= 7) {
-        [self.view.window drawViewHierarchyInRect:self.view.window.bounds afterScreenUpdates:NO];
+    if ((DeviceSystemMajorVersion() >= 7) && fast) {
+        [viewController.view drawViewHierarchyInRect:self.view.window.bounds afterScreenUpdates:NO];
     } else {
-        [self.view.layer renderInContext:UIGraphicsGetCurrentContext()];
+        [viewController.view.layer renderInContext:UIGraphicsGetCurrentContext()];
     }
     viewImage = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
+
+    return viewImage;
+}
+
+- (void)rebuildScreenshots {
+    [bgImageStack removeAllObjects];
+    for (UIViewController *viewController in self.viewControllers) {
+        [bgImageStack addObject:[self snapshot:viewController fast:NO]];  // fast mode doesn't work at this time
+    }
+    [bgImageStack removeLastObject];
+    [bgImageView setImage:bgImageStack.lastObject];
+}
+
+- (void)pushViewController:(UIViewController *)viewController animated:(BOOL)animated {
+    UIImage *viewImage = [self snapshot:self.topViewController fast:YES];
     [bgImageStack addObject:viewImage];
     [bgImageView setImage:viewImage];
     [super pushViewController:viewController animated:animated];

@@ -11,5 +11,6 @@
 
 - (void)popViewControllerWithDuration:(NSTimeInterval)duration options:(UIViewAnimationOptions)options;
 - (void)resetTopViewControllerWithDuration:(NSTimeInterval)duration options:(UIViewAnimationOptions)options;
+- (void)rebuildScreenshots;
 
 @end

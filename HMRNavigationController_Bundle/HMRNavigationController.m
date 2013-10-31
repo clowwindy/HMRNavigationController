@@ -57,7 +57,9 @@ NSUInteger DeviceSystemMajorVersion();
     if ((DeviceSystemMajorVersion() >= 7) && fast) {
         [viewController.view drawViewHierarchyInRect:self.view.window.bounds afterScreenUpdates:NO];
     } else {
-        [viewController.view.layer renderInContext:UIGraphicsGetCurrentContext()];
+        CGContextRef c = UIGraphicsGetCurrentContext();
+        CGContextConcatCTM(c, CGAffineTransformMakeTranslation(0, [UIApplication sharedApplication].statusBarFrame.size.height));
+        [viewController.view.layer renderInContext:c];
     }
     viewImage = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();

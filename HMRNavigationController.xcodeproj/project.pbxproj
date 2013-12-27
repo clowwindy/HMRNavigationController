@@ -22,6 +22,8 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		621BF955186D5D0F00DA10E2 /* HMRRightPanGestureRecognizer.h in Headers */ = {isa = PBXBuildFile; fileRef = 621BF953186D5D0F00DA10E2 /* HMRRightPanGestureRecognizer.h */; };
+		621BF956186D5D0F00DA10E2 /* HMRRightPanGestureRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 621BF954186D5D0F00DA10E2 /* HMRRightPanGestureRecognizer.m */; };
 		62C106E817BDF3A300CDE393 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 62C106E617BDF3A300CDE393 /* InfoPlist.strings */; };
 		62C106F617BDF5EC00CDE393 /* HMRNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 62C106F517BDF5EC00CDE393 /* HMRNavigationController.m */; };
 		62C106F917BDF68D00CDE393 /* HMRNavigationController.h in Headers */ = {isa = PBXBuildFile; fileRef = 62C106F417BDF5EC00CDE393 /* HMRNavigationController.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -38,6 +40,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		621BF953186D5D0F00DA10E2 /* HMRRightPanGestureRecognizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HMRRightPanGestureRecognizer.h; sourceTree = "<group>"; };
+		621BF954186D5D0F00DA10E2 /* HMRRightPanGestureRecognizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HMRRightPanGestureRecognizer.m; sourceTree = "<group>"; };
 		62C106BF17BDF36A00CDE393 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		62C106C117BDF36A00CDE393 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		62C106C317BDF36A00CDE393 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -95,6 +99,8 @@
 				62C106E417BDF3A300CDE393 /* Supporting Files */,
 				62C106F417BDF5EC00CDE393 /* HMRNavigationController.h */,
 				62C106F517BDF5EC00CDE393 /* HMRNavigationController.m */,
+				621BF953186D5D0F00DA10E2 /* HMRRightPanGestureRecognizer.h */,
+				621BF954186D5D0F00DA10E2 /* HMRRightPanGestureRecognizer.m */,
 			);
 			name = HMRNavigationController;
 			path = HMRNavigationController_Bundle;
@@ -118,6 +124,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				62C106F917BDF68D00CDE393 /* HMRNavigationController.h in Headers */,
+				621BF955186D5D0F00DA10E2 /* HMRRightPanGestureRecognizer.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -202,6 +209,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				621BF956186D5D0F00DA10E2 /* HMRRightPanGestureRecognizer.m in Sources */,
 				62C106F617BDF5EC00CDE393 /* HMRNavigationController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -361,6 +369,7 @@
 				62C106EC17BDF3A300CDE393 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		62C106EE17BDF43B00CDE393 /* Build configuration list for PBXAggregateTarget "HMRNavigationControllerAggregate" */ = {
 			isa = XCConfigurationList;
@@ -369,6 +378,7 @@
 				62C106F017BDF43B00CDE393 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

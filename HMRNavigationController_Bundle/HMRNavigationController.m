@@ -4,6 +4,7 @@
 //
 
 #import <QuartzCore/QuartzCore.h>
+#import "HMRRightPanGestureRecognizer.h"
 #import "HMRNavigationController.h"
 
 #define BG_FACTOR 0.3
@@ -11,12 +12,18 @@
 #define BG_ALPHA 0.8
 #define SHADOW_WIDTH 5
 
+// 左右划触发的最小距离
+#define TRIGGER_PAN_LIMIT 15
+// 上下滑取消左右划，的最小距离
+#define TRIGGER_CANCEL_PAN_LIMIT 50
+
 @implementation HMRNavigationController {
-    UIPanGestureRecognizer *recognizer;
+    HMRRightPanGestureRecognizer *recognizer;
     CGRect viewControllerOriginalFrame;
     NSMutableArray *bgImageStack;
     UIImageView *bgImageView;
     UIImageView *shadowImageView;
+    BOOL panTriggered;
 }
 
 
@@ -25,7 +32,8 @@ NSUInteger DeviceSystemMajorVersion();
 - (id)initWithRootViewController:(UIViewController *)rootViewController {
     self = [super initWithRootViewController:rootViewController];
     if (self) {
-        recognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(pan:)];
+        panTriggered = NO;
+        recognizer = [[HMRRightPanGestureRecognizer alloc] initWithTarget:self action:@selector(pan:)];
         recognizer.delegate = self;
         bgImageStack = [[NSMutableArray alloc] initWithCapacity:8];
         bgImageView = [[UIImageView alloc] initWithFrame:self.view.bounds];
@@ -46,6 +54,21 @@ NSUInteger DeviceSystemMajorVersion();
     }
     return YES;
 }
+
+//-(BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer {
+//    return YES;
+//}
+
+//-(BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldBeRequiredToFailByGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer {
+////    if ([otherGestureRecognizer isKindOfClass:[UIPanGestureRecognizer class]]) {
+////        UIPanGestureRecognizer *otherPanGestureGecognizer = (UIPanGestureRecognizer *)otherGestureRecognizer;
+//////        if (fabsf([otherPanGestureGecognizer translationInView:self.view].y) > TRIGGER_PAN_LIMIT) {
+////            return YES;
+////            NSLog(@"require to fail by other gesture");
+//////        }
+////    }
+//    return NO;
+//}
 
 - (UIImage *)snapshot:(UIViewController *)viewController fast:(BOOL)fast {
     CGFloat scale = 1.0f;
@@ -141,7 +164,8 @@ NSUInteger DeviceSystemMajorVersion();
     } else if (p.x > 320) {
         p.x = 320;
     }
-    if (p.x >= 0 && p.x <= 320) {
+    if (p.x >= TRIGGER_PAN_LIMIT && p.x <= 320 - TRIGGER_PAN_LIMIT) {
+        panTriggered = YES;
         CGRect newFrame = view.frame;
         if (newFrame.origin.x == 0) {
             viewControllerOriginalFrame = view.frame;
@@ -158,7 +182,15 @@ NSUInteger DeviceSystemMajorVersion();
         shadowImageView.alpha = (320.0f - p.x) / 320.0f * SHADOW_FACTOR; // start fading when x > 160
         shadowImageView.frame = shadowFrame;
     }
-    if (recognizer.state == UIGestureRecognizerStateEnded) {
+    if ((!panTriggered) && (p.y >= TRIGGER_CANCEL_PAN_LIMIT || p.y <= -TRIGGER_CANCEL_PAN_LIMIT)) {
+        recognizer.enabled = NO;
+        recognizer.enabled = YES;
+//        recognizer.state = UIGestureRecognizerStateFailed;
+        NSLog(@"cancel go back gesture");
+        return;
+    }
+    if (panTriggered && recognizer.state == UIGestureRecognizerStateEnded) {
+        panTriggered = NO;
         CGFloat v = [recognizer velocityInView:self.view].x;
         if (v == 0) v = 0.001;
         CGFloat x = p.x;

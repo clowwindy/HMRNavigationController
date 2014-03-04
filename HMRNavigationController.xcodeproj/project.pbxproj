@@ -22,7 +22,7 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
-		621BF955186D5D0F00DA10E2 /* HMRRightPanGestureRecognizer.h in Headers */ = {isa = PBXBuildFile; fileRef = 621BF953186D5D0F00DA10E2 /* HMRRightPanGestureRecognizer.h */; };
+		621BF955186D5D0F00DA10E2 /* HMRRightPanGestureRecognizer.h in Headers */ = {isa = PBXBuildFile; fileRef = 621BF953186D5D0F00DA10E2 /* HMRRightPanGestureRecognizer.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		621BF956186D5D0F00DA10E2 /* HMRRightPanGestureRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 621BF954186D5D0F00DA10E2 /* HMRRightPanGestureRecognizer.m */; };
 		62C106E817BDF3A300CDE393 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 62C106E617BDF3A300CDE393 /* InfoPlist.strings */; };
 		62C106F617BDF5EC00CDE393 /* HMRNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 62C106F517BDF5EC00CDE393 /* HMRNavigationController.m */; };

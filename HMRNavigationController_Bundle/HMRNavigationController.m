@@ -24,6 +24,8 @@
     UIImageView *bgImageView;
     UIImageView *shadowImageView;
     BOOL panTriggered;
+    BOOL enabled;
+    NSTimer *timer;
 }
 
 
@@ -32,6 +34,7 @@ NSUInteger DeviceSystemMajorVersion();
 - (id)initWithRootViewController:(UIViewController *)rootViewController {
     self = [super initWithRootViewController:rootViewController];
     if (self) {
+        enabled = YES;
         panTriggered = NO;
         recognizer = [[HMRRightPanGestureRecognizer alloc] initWithTarget:self action:@selector(pan:)];
         recognizer.delegate = self;
@@ -106,6 +109,14 @@ NSUInteger DeviceSystemMajorVersion();
     [bgImageStack addObject:viewImage];
     [bgImageView setImage:viewImage];
     [super pushViewController:viewController animated:animated];
+    if (animated) {
+        enabled = NO;
+        timer = [NSTimer scheduledTimerWithTimeInterval:0.8 target:self selector:@selector(enable) userInfo:nil repeats:NO];
+    }
+}
+                          
+- (void)enable {
+    enabled = YES;
 }
 
 - (UIViewController *)popViewControllerAnimated:(BOOL)animated {
@@ -152,6 +163,9 @@ NSUInteger DeviceSystemMajorVersion();
 }
 
 - (void)pan:(UIPanGestureRecognizer *)recognizer1 {
+    if (!enabled) {
+        return;
+    }
     UIViewController *viewController = self.topViewController;
     UIView *view = viewController.view;
     if (self.viewControllers.count == 1) {

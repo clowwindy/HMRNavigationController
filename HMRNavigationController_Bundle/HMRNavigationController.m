@@ -17,6 +17,8 @@
 // 上下滑取消左右划，的最小距离
 #define TRIGGER_CANCEL_PAN_LIMIT 50
 
+#define SCREEN_WIDTH [UIScreen mainScreen].bounds.size.width
+
 @implementation HMRNavigationController {
     HMRRightPanGestureRecognizer *recognizer;
     CGRect viewControllerOriginalFrame;
@@ -132,14 +134,14 @@ NSUInteger DeviceSystemMajorVersion();
 //    [HMRKernel executeCommand:@"tutorial/record pan_back"]; // TODO
     [UIView animateWithDuration:duration delay:0 options:options animations:^{
         CGRect newFrame = viewControllerOriginalFrame;
-        newFrame.origin.x += 320;
+        newFrame.origin.x += SCREEN_WIDTH;
         self.topViewController.view.frame = newFrame;
         CGRect bgFrame = bgImageView.frame;
         bgFrame.origin.x = 0;
         bgImageView.frame = bgFrame;
         bgImageView.alpha = 1;
         CGRect shadowFrame = shadowImageView.frame;
-        shadowFrame.origin.x = 320 - SHADOW_WIDTH;
+        shadowFrame.origin.x = SCREEN_WIDTH - SHADOW_WIDTH;
         shadowImageView.frame = shadowFrame;
         shadowImageView.alpha = 0;
     } completion:^(BOOL finished) {
@@ -151,7 +153,7 @@ NSUInteger DeviceSystemMajorVersion();
     [UIView animateWithDuration:duration delay:0 options:options animations:^{
         self.topViewController.view.frame = viewControllerOriginalFrame;
         CGRect bgFrame = bgImageView.frame;
-        bgFrame.origin.x = -320 * BG_FACTOR;
+        bgFrame.origin.x = -SCREEN_WIDTH * BG_FACTOR;
         bgImageView.frame = bgFrame;
         bgImageView.alpha = BG_ALPHA;
         CGRect shadowFrame = shadowImageView.frame;
@@ -175,10 +177,10 @@ NSUInteger DeviceSystemMajorVersion();
     CGPoint p = [recognizer translationInView:self.view];
     if (p.x < 0) {
         p.x = 0;
-    } else if (p.x > 320) {
-        p.x = 320;
+    } else if (p.x > SCREEN_WIDTH) {
+        p.x = SCREEN_WIDTH;
     }
-    if (p.x >= TRIGGER_PAN_LIMIT && p.x <= 320 - TRIGGER_PAN_LIMIT) {
+    if (p.x >= TRIGGER_PAN_LIMIT && p.x <= SCREEN_WIDTH - TRIGGER_PAN_LIMIT) {
         panTriggered = YES;
         CGRect newFrame = view.frame;
         if (newFrame.origin.x == 0) {
@@ -188,12 +190,12 @@ NSUInteger DeviceSystemMajorVersion();
         newFrame.origin.x += p.x;
         view.frame = newFrame;
         CGRect bgFrame = bgImageView.frame;
-        bgFrame.origin.x = p.x * BG_FACTOR - 320 * BG_FACTOR;
+        bgFrame.origin.x = p.x * BG_FACTOR - SCREEN_WIDTH * BG_FACTOR;
         bgImageView.frame = bgFrame;
-        bgImageView.alpha = p.x  * (1 - BG_ALPHA) / 320.0f + BG_ALPHA;
+        bgImageView.alpha = p.x  * (1 - BG_ALPHA) / SCREEN_WIDTH + BG_ALPHA;
         CGRect shadowFrame = shadowImageView.frame;
         shadowFrame.origin.x = p.x - SHADOW_WIDTH;
-        shadowImageView.alpha = (320.0f - p.x) / 320.0f * SHADOW_FACTOR; // start fading when x > 160
+        shadowImageView.alpha = (SCREEN_WIDTH - p.x) / SCREEN_WIDTH * SHADOW_FACTOR; // start fading when x > 160
         shadowImageView.frame = shadowFrame;
     }
     if ((!panTriggered) && (p.y >= TRIGGER_CANCEL_PAN_LIMIT || p.y <= -TRIGGER_CANCEL_PAN_LIMIT)) {
@@ -211,9 +213,9 @@ NSUInteger DeviceSystemMajorVersion();
         // condition: v > 0 and v * v / (2 * a) > 0.5 * (s - x)
         // t ~= (s - x) / v * 2
         CGFloat sign = v > 0? 1: -1;
-        BOOL condition = (sign * (v * v) / (2 * 100) > 0.5 * 320 - x);
+        BOOL condition = (sign * (v * v) / (2 * 100) > 0.5 * SCREEN_WIDTH - x);
         if (condition) {
-            CGFloat t = sign * (320 - x) / v * 2;
+            CGFloat t = sign * (SCREEN_WIDTH - x) / v * 2;
             if (t > 0.5) {
                 t = 0.5;
             } else if (t < 0.1) {
